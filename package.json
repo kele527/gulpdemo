@@ -1,0 +1,24 @@
+{
+  "name": "test2016",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-connect": "^5.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-include": "^2.3.1",
+    "gulp-inline-source": "^3.0.0",
+    "gulp-print": "^2.0.1",
+    "gulp-sequence": "^0.4.6",
+    "gulp-uglify": "^2.0.0",
+    "gulp-useref": "^3.1.2"
+  }
+}
