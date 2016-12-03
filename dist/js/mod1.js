@@ -1,0 +1,1 @@
+function mod1(o){console.log(o+a)}var a=1;

@@ -7,6 +7,7 @@
 var del=require('del');
 var gulp=require('gulp');
 var uglify=require('gulp-uglify');
+var imagemin=require('gulp-imagemin');
 var mincss=require('gulp-clean-css');//压缩css
 var inline=require('gulp-inline-source'); //资源内联 （主要是js，css，图片）
 var include=require('gulp-include'); //资源内联（主要是html片段）
@@ -31,6 +32,13 @@ gulp.task('mincss',function () {
         .pipe(mincss())
         .pipe(gulp.dest('dist/css'))
 });
+
+gulp.task('minimg', function () {
+    gulp.src('src/img/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/img'))
+});
+
 
 gulp.task('minjs',function () {
     return gulp.src('./src/js/*.js')
@@ -62,7 +70,7 @@ gulp.task('connect', function() {
 
 //sequence的返回函数只能运行一次 所以这里用function cb方式使用
 gulp.task('watchlist',function (cb) {
-    sequence('clean',['mincss','minjs','html'])(cb)
+    sequence('clean',['mincss','minimg','minjs','html'])(cb)
 });
 
 gulp.task('watch',function () {
@@ -72,7 +80,7 @@ gulp.task('watch',function () {
 
 //中括号外面的是串行执行， 中括号里面的任务是并行执行。
 gulp.task('default',function (cb) {
-    sequence('clean',['mincss','minjs','html','connect'],'watch')(cb)
+    sequence('clean',['mincss','minimg','minjs','html','connect'],'watch')(cb)
 });
 
 
