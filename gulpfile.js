@@ -21,7 +21,7 @@ var connect=require('gulp-connect'); //本地服务器
 //清理构建目录
 gulp.task('clean',function (cb) {
     del(['dist']).then(function () {
-        cb()
+        cb();
     })
 });
 
